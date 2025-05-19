@@ -50,40 +50,83 @@ class GlassContainer extends StatelessWidget {
 }
 
 
-class Iconcontainer extends StatelessWidget {
+class Iconcontainer extends StatefulWidget {
   const Iconcontainer({super.key, this.images, required this.title, this.ontap});
   final String? images;
   final String title;
-  final ontap;
+  final VoidCallback? ontap;
+
+  @override
+  State<Iconcontainer> createState() => _IconcontainerState();
+}
+
+class _IconcontainerState extends State<Iconcontainer> {
+  Color defaultColor = Color(0xFFF4F5FF).withOpacity(0.5);
+  Color pressedColor = Color(0xFFD69ECA);
+  bool isPressed = false;
+
+  void _handleTapDown(TapDownDetails details) {
+    setState(() {
+      isPressed = true;
+    });
+  }
+
+  void _handleTapUp(TapUpDetails details) {
+    setState(() {
+      isPressed = false;
+    });
+    if (widget.ontap != null) {
+      widget.ontap!();
+    }
+  }
+
+  void _handleTapCancel() {
+    setState(() {
+      isPressed = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: ontap,
+        onTapDown: _handleTapDown,
+        onTapUp: _handleTapUp,
+        onTapCancel: _handleTapCancel,
         child: Container(
           height: 20.h,
-          width: 20.h,
+          width: 25.h,
           decoration: BoxDecoration(
-            color: const Color(0xFFF4F5FF).withOpacity(0.5),
+            color: isPressed ? pressedColor : defaultColor,
             borderRadius: BorderRadius.circular(20),
           ),
-          child:Column(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(child: Image.asset(images!)),
-              SizedBox(
-                height: 1.h,
-              ),
+              if (widget.images != null)
+                Expanded(child: Image.asset(widget.images!)),
+              SizedBox(height: 1.h),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(title,style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black
-                ),),
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: Text(
+                    widget.title,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+
+                  ),
+                ),
               )
             ],
           ),
         ),
       ),
     );
-  }}
+  }
+}
+
+
 

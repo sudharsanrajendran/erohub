@@ -2,41 +2,32 @@ import 'dart:ui';
 import 'package:erohub/Utils/Constants/const_texts.dart';
 import 'package:erohub/Utils/Constants/images.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
+import '../../GlobalWidget/Homeicon.dart';
 import '../../Utils/Constants/Tcolors.dart';
+import '../R&D_screen/Reseach_developmenty_home.dart';
+import '../StadyMaterial/Studymaterialscreen/studymaterial_page.dart';
+import '../VizScreens/Vizpage/Vizhome.dart';
 import 'CustomWidgets/GlassstyleContainer.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
 
-      floatingActionButton: Container(
-        height: 60, // medium size height
-        width: 60,  // medium size width
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-        ),
-        child: IconButton(
-          onPressed: () {},
-          icon: ShaderMask(
-            shaderCallback: (Rect bounds) {
-              return Tcolors.Homeiconcolor.createShader(bounds);
-            },
-            child: const Icon(
-              Icons.home,
-              size: 38,
-              color: Colors.white, // Let ShaderMask apply gradient
-            ),
-          ),
-        ),
-      ),
+      floatingActionButton: homeicon(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
 
@@ -49,7 +40,7 @@ class Homescreen extends StatelessWidget {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(10.0),
             child: Stack(
               children: [
                 // Teal circle
@@ -57,7 +48,7 @@ class Homescreen extends StatelessWidget {
                   left: 5.w,
                   top: 2.h,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
+
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                       child: Container(
@@ -114,11 +105,11 @@ class Homescreen extends StatelessWidget {
 
                 // Blue circle
                 Positioned(
-                  left: -1.w,
+                  left: 3.w,
                   top: 20.h,
                   child: Container(
                     height: 10.h,
-                    width: 40.w,
+                    width: 30.w,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(125)),
                       gradient: RadialGradient(
@@ -142,9 +133,10 @@ class Homescreen extends StatelessWidget {
                 // 🆕 Glass blur background layer
                 // Reduced height glass blur background with visible border
                 Positioned(
-                  top: 18.h, // Adjust as needed
+                  top: 0, // Adjust as needed
                   left: 0,
                   right: 0,
+                  bottom: 25,
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                     child: Container(
@@ -154,18 +146,18 @@ class Homescreen extends StatelessWidget {
                         color: Colors.white54.withOpacity(0.2),
                         border: Border.all(
                           color: Colors.grey.withOpacity(0.4),
-                          width: 1.5,
+                          width: 1.3,
                         ),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20)
                       ),
                     ),
                   ),
                 ),
 
                 // ⬇️ Main content
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                  child: SingleChildScrollView(
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -202,8 +194,8 @@ class Homescreen extends StatelessWidget {
                             ),
                             const SizedBox(width: 8),
                             Container(
-                              height: 48,
-                              width: 48,
+                              height: 50,
+                              width: 50,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
@@ -235,13 +227,17 @@ class Homescreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Iconcontainer(
-                                    ontap: () {},
+                                    ontap: () {
+                                      Get.to(vizhome());
+                                    },
                                     title: const_text.Categoriestitle1,
                                     images: Timages.internship,
                                   ),
                                   SizedBox(width: 20),
                                   Iconcontainer(
-                                    ontap: () {},
+                                    ontap: () {
+                                      Get.to(Reach_and_development_home());
+                                    },
                                     title: const_text.Categoriestitle2,
                                     images: Timages.reseachanddevelopment,
                                   ),
@@ -255,19 +251,20 @@ class Homescreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Iconcontainer(
-                                    ontap: () {},
+                                    ontap: () {
+                                      Get.to(vizhome());
+                                    },
                                     title: const_text.Categoriestitle3,
                                     images: Timages.workpoint,
                                   ),
                                   SizedBox(width: 20),
                                   Iconcontainer(
-                                    ontap: () {},
+                                    ontap: () {
+                                      Get.to(StudymaterialPage());
+                                    },
                                     title: const_text.Categoriestitle4,
                                     images: Timages.study,
                                   ),
-                                  SizedBox(width: 20),
-
-
                                 ],
                               ),
                             ),
@@ -294,3 +291,5 @@ class Homescreen extends StatelessWidget {
     );
   }
 }
+
+

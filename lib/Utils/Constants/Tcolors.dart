@@ -35,8 +35,14 @@ class Tcolors{
         Color(0xFFEFEBF6),
         Color(0xFFE9EDF7)
 
-
-
+      ]);
+  static const Gradient VIZBUTTON = LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [
+        Color(0xFFDD7C52),
+        Color(0xFFFE5271),
+        Color(0xFFEA4891),
       ]);
 
 
@@ -60,6 +66,8 @@ class Tcolors{
   static const Color viz_header_color=Color(0xFF7F48BE);
   static const Color viz_subheader=Color(0xFF4CADDA);
   static const Color viz_login_color=Color(0xFF3BB5BE);
+
+
 
 //background
 

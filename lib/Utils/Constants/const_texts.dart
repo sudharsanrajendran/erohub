@@ -1,3 +1,9 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
+
+
 class const_text {
   const_text._();
 
@@ -19,6 +25,71 @@ class const_text {
   static const String  Categoriestitle2= "Research and \nDevelopment";
   static const String Categoriestitle3 = "work point EHT";
   static const String Categoriestitle4= "Study Materials";
+
+  static const String Vizcontent="Explore new opportunities with our Virtual Internships!"
+      " Gain valuable industry experience and enhance your skills from the comfort of your own home. "
+      "Our flexible program offers the chance to work on meaningful projects, collaborate with professionals,"
+      " and develop your career, all while managing your own schedule."
+      " Start your journey with us and make a significant impact, "
+      "no matter where you are";
+
+  static const String Vizcontainercontent="Elevate Your Career with Virtual Internships. Gain Experience and Flexibility from Anywhere!";
+
+  static const String internshipdeclare="If you’re interested in working for ERP, you’ll find every open role on our job portal.";
+
+  static const String r_and_dcontnet =" Elevate your research and development initiatives with ERP solutions designed to enhance every aspect of the content creation process. Our ERP system streamlines project management, ensuring efficient resource allocation and real-time tracking of progress. Facilitate seamless collaboration among R&D teams, content creators, and stakeholders to accelerate innovation. Leverage advanced analytics to gain insights into market trends and content performance, guiding strategic decision-making. By integrating R&D with ERP, you can produce high-quality, impactful content that meets "
+  "evolving business needs and drives"
+  " competitive advantageensuring sustained growth and"
+  " success.";
+
+
+  static const String WORKPOINT_content="Welcome to your Dashboard, "
+      "where comprehensive insights and actionable data come together in one unified view. Our dashboard is designed to provide you with an intuitive overview of key performance indicators, real-time metrics, and critical alerts, ensuring you stay informed and agile. Navigate through high-level summaries to detailed analytics effortlessly, with dynamic search and filtering options that allow you to tailor your data view to your specific needs. From financial performance and operational efficiency to customer insights and project status, our dashboard equips you with the tools and information necessar"
+      "y to make data-driven decisions and drive your organization forward. ";
+
+  static final TextStyle bigwhitetext = GoogleFonts.roboto(
+  fontSize: 23.0.sp,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  );
+
+
+  static final TextStyle bigGRAY = GoogleFonts.roboto(
+    fontSize: 23.0.sp,
+    fontWeight: FontWeight.w200,
+    color: Colors.grey,
+  );
+  static final TextStyle smalGRAY = GoogleFonts.roboto(
+    fontSize: 18,
+    color: Colors.grey,
+  );
+
+  static final TextStyle smallwhite = GoogleFonts.roboto(
+  fontSize: 15.0.sp,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  );
+  static final TextStyle paragaraph = GoogleFonts.roboto(
+  fontSize: 15.sp,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  );
+  static final TextStyle bigblack = GoogleFonts.roboto(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  static final TextStyle fromheading = GoogleFonts.figtree(
+    fontSize: 12.spa,
+    color: Colors.grey,
+  );
+  static final TextStyle Formtitle = GoogleFonts.inter(
+    fontSize: 15.0.sp,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
 
 
 

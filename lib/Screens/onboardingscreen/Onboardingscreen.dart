@@ -158,7 +158,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                           child: Text(
                             title,
                             style: GoogleFonts.abel(
-                              fontSize: 21.sp,
+                              fontSize: 18.sp,
                               color: Colors.white,
                             ),
                           ),
